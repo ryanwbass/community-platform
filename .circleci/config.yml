@@ -316,7 +316,8 @@ jobs:
       CI_BROWSER:
         type: string
     steps:
-      - setup_repo
+      - checkout
+      - *restore_yarn_cache
       # retrieve build folder
       - attach_workspace:
           at: '.'
