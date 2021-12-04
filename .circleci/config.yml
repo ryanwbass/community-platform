@@ -286,7 +286,8 @@ jobs:
         type: boolean
         default: true
     steps:
-      - setup_repo
+      - checkout
+      - *restore_yarn_cache
       - attach_workspace:
           at: '.'
       - firebase_deploy:
