@@ -318,6 +318,8 @@ jobs:
     steps:
       - checkout
       - *restore_yarn_cache
+      - run: 
+          command: yarn install --immutable --immutable-cache
       # retrieve build folder
       - attach_workspace:
           at: '.'
