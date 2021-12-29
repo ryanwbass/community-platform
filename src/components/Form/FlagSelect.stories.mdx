@@ -1,0 +1,50 @@
+import { withKnobs, text, boolean } from '@storybook/addon-knobs'
+import { PropsTable } from '@storybook/components'
+import { Story, Meta, Preview } from '@storybook/addon-docs/blocks'
+import { FlagSelectField } from './FlagSelect.tsx'
+
+<Meta
+  title="Components|FlagSelect"
+  component={FlagSelectField}
+  decorators={[withKnobs]}
+/>
+
+# FlagSelectField
+
+A `FlagSelectField` component allows a user to select a country and includes a helpful. It is a thin wrapper on [react-flags-select](https://www.npmjs.com/package/react-flags-select)
+
+<Story name="Default">
+  <FlagSelectField
+    input={{
+      value: 'gb'
+    }}>
+</Story>
+<PropsTable
+  rows={[
+    {
+      name: 'small',
+      defaultValue: false,
+      description: 'Sets a small font-size.',
+    },
+    {
+      name: 'medium',
+      defaultValue: false,
+      description: 'Sets a medium small font-size.',
+    },
+    {
+      name: 'large',
+      defaultValue: false,
+      description: 'Sets a large small font-size.',
+    },
+    {
+      name: 'clipped',
+      defaultValue: false,
+      description: 'Adds ellipsis while preventing text overflow.',
+    },
+    {
+      name: 'color',
+      defaultValue: 'black',
+      description: 'Font color.',
+    },
+  ]}
+/>
