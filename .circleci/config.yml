@@ -343,6 +343,41 @@ jobs:
                 <<: *slack_custom_success_message
 
   # Run cypress e2e tests on chrome and firefox
+  install_e2e:
+    docker: *docker
+    # build matrix will run 4 parallel builds handled by cypress, so don't need to specify more here
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore yarn e2e cache
+          keys:
+            # https://circleci.com/docs/2.0/caching/
+            # https://circleci.com/docs/2.0/yarn/
+            # when lock file changes, use increasingly general patterns to restore cache (also need to change `save_cache` path)
+            # NOTE - if changing base image or received cache permission denied may need to bump version v3->v4 or similar (clears after 15d)
+            - yarn-packages-v10-e2e-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v10-e2e-{{ .Branch }}-
+            - yarn-packages-v10-e2e-
+      - run:
+          # Currently the e2e is tightly coupled to the wider monorepo
+          # so we need to do a global install to load all of the required
+          # components. This is ripe for refactor ;)
+          name: Install e2e Packages
+          command: yarn install --immutable
+      - save_cache:
+          # note - if moving to workspaces include paths: https://discuss.circleci.com/t/yarn-cached-install-slow/34823/2
+          # depending on whether enableGlobalCache is set to true or not (and windows/linux) these paths may vary
+          paths:
+            # global cache location
+            # - ~/.yarn/berry/cache
+            # local cache location
+            - ~/project/.yarn/cache
+          key: yarn-packages-v10-e2e-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      # retrieve build folder
+      - attach_workspace:
+          at: '.'
+      - inject_instance_configuration
+      
   test_e2e:
     docker: *docker
     # build matrix will run 4 parallel builds handled by cypress, so don't need to specify more here
@@ -353,11 +388,20 @@ jobs:
       CI_BROWSER:
         type: string
     steps:
-      - setup_repo
+      - checkout
+      - restore_cache:
+          name: Restore yarn e2e cache
+          keys:
+            # https://circleci.com/docs/2.0/caching/
+            # https://circleci.com/docs/2.0/yarn/
+            # when lock file changes, use increasingly general patterns to restore cache (also need to change `save_cache` path)
+            # NOTE - if changing base image or received cache permission denied may need to bump version v3->v4 or similar (clears after 15d)
+            - yarn-packages-v10-e2e-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v10-e2e-{{ .Branch }}-
+            - yarn-packages-v10-e2e-
       # retrieve build folder
       - attach_workspace:
           at: '.'
-      - inject_instance_configuration
       # install testing browsers are required
       - when:
           condition:
@@ -410,13 +454,17 @@ workflows:
             branches:
               ignore:
                 - production
-      - test_e2e:
-          name: e2e-<< matrix.CI_BROWSER >>-<< matrix.CI_NODE >>
+      - install_e2e:
+          name: 'Install e2e dependencies'
+          context:
+            - e2e-tests
           requires:
             - 'Build Application'
             - 'Unit tests'
-          context:
-            - e2e-tests
+      - test_e2e:
+          name: e2e-<< matrix.CI_BROWSER >>-<< matrix.CI_NODE >>
+          requires:
+            - 'Install e2e dependencies'
           matrix:
             parameters:
               CI_NODE: [1, 2]
