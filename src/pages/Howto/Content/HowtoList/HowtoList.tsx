@@ -85,6 +85,10 @@ export class HowtoList extends React.Component<any, IState> {
     }
   }
 
+  componentWillUnmount(): void {
+    this.props.howtoStore.updateSearchValue('')
+  }
+
   public render() {
     const {
       filteredHowtos,
