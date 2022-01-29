@@ -419,6 +419,8 @@ jobs:
           steps:
             - browser-tools/install-firefox
       # call main testing script
+      - run: 
+          command: yarn workspaces focus oa-cypress install
       - run:
           command: npm run test ci prod
           environment:
