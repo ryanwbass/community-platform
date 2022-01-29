@@ -30,7 +30,8 @@
     "analyze": "npx cra-bundle-analyzer && npx open-cli build/report.html",
     "install:clean": "yarn workspace oa-scripts install:clean",
     "postinstall": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "serve:next": "yarn build && firebase emulators:start --only functions,hosting"
   },
   "config": {
     "commitizen": {
@@ -82,6 +83,7 @@
     "lorem-ipsum": "^2.0.3",
     "mobx": "6.3.2",
     "mobx-react": "7.2.0",
+    "next": "^12.0.9",
     "oa-shared": "1.0.0",
     "pino": "^7.2.0",
     "pino-logflare": "^0.3.12",

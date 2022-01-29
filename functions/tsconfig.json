@@ -1,26 +1,46 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "DOM"],
+    "lib": [
+      "es6",
+      "DOM"
+    ],
     "module": "CommonJS",
     "noImplicitAny": false,
     "outDir": "lib",
     "sourceMap": true,
     "declaration": true,
     "target": "es6",
-    "jsx": "react-jsx",
-    "typeRoots": ["./node_modules/@types"],
+    "jsx": "preserve",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "baseUrl": ".",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "isolatedModules": true
   },
   "references": [
     // these (should) be compiled ahead of functions, although can break: https://github.com/microsoft/TypeScript/issues/25864#issuecomment-596217193
     // in these cases manual build might be required on other projects first (currently done in firebase.json)
-    { "path": "../tsconfig.src-types.json" },
-    { "path": "../shared/tsconfig.json" }
+    {
+      "path": "../tsconfig.src-types.json"
+    },
+    {
+      "path": "../shared/tsconfig.json"
+    }
   ],
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.tsx", "../src/**/*.test.tsx"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "../src/**/*.test.tsx"
+  ]
 }

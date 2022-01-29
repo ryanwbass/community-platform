@@ -8,6 +8,10 @@
         "function": "api"
       },
       {
+        "source": "/how-to/*",
+        "function": "nextjsFunc"
+      },
+      {
         "source": "**",
         "destination": "/index.html",
         "headers": [
@@ -54,7 +58,7 @@
   },
   "functions": {
     "predeploy": ["yarn workspace functions build"],
-    "source": "functions/dist"
+    "source": "functions"
   },
   "emulators": {
     "ui": {
