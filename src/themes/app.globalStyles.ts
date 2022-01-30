@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import theme from 'src/themes/styled.theme'
+import theme from './styled.theme'
 
 import { GlobalFonts } from './fonts'
 // declare global styling overrides (fonts etc.)

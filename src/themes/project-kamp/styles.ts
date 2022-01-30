@@ -1,4 +1,3 @@
-import type { ThemeWithName } from "../types"
 
 // use enum to specify list of possible colors for typing
 export const colors = {
@@ -218,7 +217,7 @@ const typography = {
   },
 }
 
-const StyledComponentTheme: ThemeWithName = {
+const StyledComponentTheme: any = {
   name: 'Project Kamp',
   colors,
   buttons,

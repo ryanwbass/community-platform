@@ -5,7 +5,7 @@ import avatar from 'src/assets/images/themes/project-kamp/avatar.svg'
 import styles from './styles'
 import { THEME_LIST } from '..'
 
-const Theme: PlatformTheme = {
+const Theme: unknown = {
   id: THEME_LIST.PROJECT_KAMP,
   siteName: 'Project Kamp',
   logo, badge, avatar,

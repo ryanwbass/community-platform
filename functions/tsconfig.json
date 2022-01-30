@@ -24,7 +24,8 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "moduleResolution": "node",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true
   },
   "references": [
     // these (should) be compiled ahead of functions, although can break: https://github.com/microsoft/TypeScript/issues/25864#issuecomment-596217193

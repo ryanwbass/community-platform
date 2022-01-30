@@ -1,4 +1,3 @@
-import type { ThemeWithName } from "../types"
 
 // use enum to specify list of possible colors for typing
 export const colors = {
@@ -34,15 +33,6 @@ export const zIndex = {
   modalBackdrop: 4000,
   modalContent: 5000,
 }
-
-export type ButtonVariants =
-  | 'primary'
-  | 'secondary'
-  | 'outline'
-  | 'disabled'
-  | 'dark'
-  | 'light'
-  | 'subtle'
 
 const space = [
   0,
@@ -218,7 +208,7 @@ const typography = {
   },
 }
 
-const StyledComponentTheme: ThemeWithName = {
+const StyledComponentTheme: any = {
   name: 'Precious Plastic',
   bold,
   breakpoints,
