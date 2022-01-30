@@ -9,7 +9,7 @@
       },
       {
         "source": "/how-to/*",
-        "function": "nextjsFunc"
+        "function": "renderHowtoArticle"
       },
       {
         "source": "**",

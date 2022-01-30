@@ -9,6 +9,7 @@
     "start": "npm run precompile && ts-node scripts/start.ts",
     "serve:live": "npm run copyDevConfig && npm run serve",
     "lint": "tslint --project tsconfig.json",
+    "serve": "npm run build && firebase emulators:start --only functions,hosting",
     "build": "next build src/",
     "x:build": "npm run precompile && npm run webpack",
     "watch": "npm run precompile && webpack --watch",
