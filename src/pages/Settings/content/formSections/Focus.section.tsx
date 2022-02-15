@@ -13,64 +13,57 @@ import { CustomRadioField } from './Fields/CustomRadio.field'
 import theme from 'src/themes/styled.theme'
 import { Field } from 'react-final-form'
 
-interface IState {
-  isOpen: boolean
-}
-
-export class FocusSection extends React.Component<any, IState> {
-  state = { isOpen: true }
-  render() {
-    const { isOpen } = this.state
-    return (
-      <Field
-        name="profileType"
-        render={props => (
-          <FlexSectionContainer>
-            <Flex justifyContent="space-between">
-              <Heading small>Focus</Heading>
-              <ArrowIsSectionOpen
-                onClick={() => {
-                  this.setState({ isOpen: !isOpen })
-                }}
-                isOpen={isOpen}
-              />
+export const FocusSection: React.FunctionComponent = () => {
+  const [isOpen, setOpenState] = React.useState(true)
+  return (
+    <Field
+      name="profileType"
+      render={props => (
+        <FlexSectionContainer>
+          <Flex justifyContent="space-between">
+            <Heading small>Focus</Heading>
+            <ArrowIsSectionOpen
+              onClick={() => {
+                setOpenState(!isOpen)
+              }}
+              isOpen={isOpen}
+            />
+          </Flex>
+          <Box sx={{ display: isOpen ? 'block' : 'none' }}>
+            <Text regular my={4}>
+              What is your main Precious Plastic activity?
+            </Text>
+            <Flex flexWrap={['wrap', 'wrap', 'nowrap']}>
+              {PROFILE_TYPES.map((profile, index: number) => (
+                <CustomRadioField
+                  data-cy={profile.label}
+                  key={index}
+                  value={profile.label}
+                  name="profileType"
+                  isSelected={profile.label === props.input.value}
+                  onChange={v => props.input.onChange(v as ProfileTypeLabel)}
+                  imageSrc={profile.imageSrc}
+                  textLabel={profile.textLabel}
+                />
+              ))}
             </Flex>
-            <Box sx={{ display: isOpen ? 'block' : 'none' }}>
-              <Text regular my={4}>
-                What is your main Precious Plastic activity?
-              </Text>
-              <Flex flexWrap={['wrap', 'wrap', 'nowrap']}>
-                {PROFILE_TYPES.map((profile, index: number) => (
-                  <CustomRadioField
-                    data-cy={profile.label}
-                    key={index}
-                    value={profile.label}
-                    name="profileType"
-                    isSelected={profile.label === props.input.value}
-                    onChange={v => props.input.onChange(v as ProfileTypeLabel)}
-                    imageSrc={profile.imageSrc}
-                    textLabel={profile.textLabel}
-                  />
-                ))}
-              </Flex>
-              <Flex flexWrap="wrap" alignItems="center" mt={4}>
-                <Text my={2}>Not sure about your focus ?</Text>
-                <Link
-                  href="https://drive.google.com/open?id=1fXTtBbzgCO0EL6G9__aixwqc-Euqgqnd"
-                  target="_blank"
-                >
-                  <Button ml={[1, 2, 2]} variant="outline" data-cy="go-to">
-                    Check out our guidelines
-                  </Button>
-                </Link>
-              </Flex>
-              {props.meta.error && (
-                <Text color={theme.colors.red}>Please select a focus</Text>
-              )}
-            </Box>
-          </FlexSectionContainer>
-        )}
-      />
-    )
-  }
+            <Flex flexWrap="wrap" alignItems="center" mt={4}>
+              <Text my={2}>Not sure about your focus ?</Text>
+              <Link
+                href="https://drive.google.com/open?id=1fXTtBbzgCO0EL6G9__aixwqc-Euqgqnd"
+                target="_blank"
+              >
+                <Button ml={[1, 2, 2]} variant="outline" data-cy="go-to">
+                  Check out our guidelines
+                </Button>
+              </Link>
+            </Flex>
+            {props.meta.error && (
+              <Text color={theme.colors.red}>Please select a focus</Text>
+            )}
+          </Box>
+        </FlexSectionContainer>
+      )}
+    />
+  )
 }

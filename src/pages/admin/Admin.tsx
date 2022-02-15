@@ -11,6 +11,7 @@ import Flex from 'src/components/Flex'
 import { Box } from 'rebass/styled-components'
 import { inject, observer } from 'mobx-react'
 import { AdminStore } from 'src/stores/Admin/admin.store'
+import { EditUser } from './Pages/EditUser'
 
 const ADMIN_ROUTES = [
   { name: 'Users', slug: 'users', component: AdminUsers },
@@ -60,6 +61,11 @@ class AdminPage extends React.Component<IProps, any> {
                 </AuthWrapper>
               </>
             )}
+          />
+          <AuthRoute
+            path={`/admin/user/:username/edit`}
+            roleRequired="admin"
+            component={EditUser}
           />
           {ADMIN_ROUTES.map(route => (
             <AuthRoute

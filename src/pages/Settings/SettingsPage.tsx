@@ -124,6 +124,7 @@ export class UserSettings extends React.Component<IProps, IState> {
   render() {
     const user = this.injected.userStore.user
     const { formValues, notification } = this.state
+    console.log(`SettingsPage.render`, {user, store: this.injected.userStore});
     return (
       user && (
         <Form
