@@ -1,6 +1,7 @@
-import { Flex, FlexProps } from 'rebass/styled-components'
+import type { FlexProps } from 'rebass/styled-components';
+import { Flex } from 'rebass/styled-components'
 import theme from 'src/themes/styled.theme'
-import { CSSObject } from '@styled-system/css'
+import type { CSSObject } from '@styled-system/css'
 
 interface ILayoutProps {
   ignoreMaxWidth?: boolean

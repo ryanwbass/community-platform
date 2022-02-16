@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { Flex, Box } from 'rebass/styled-components'
 import themes from 'src/themes/styled.theme'
+import type {
+  ListRowProps} from 'react-virtualized';
 import {
   List,
   WindowScroller,
   CellMeasurerCache,
-  CellMeasurer,
-  ListRowProps,
+  CellMeasurer
 } from 'react-virtualized'
 import { emStringToPx } from 'src/utils/helpers'
 

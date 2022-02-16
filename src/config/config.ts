@@ -16,7 +16,7 @@ import type {
   siteVariants,
 } from './types';
 import type { ConfigurationOption } from './constants';
-import { UserRole } from '../models'
+import type { UserRole } from '../models'
 
 /**
  * Helper function to load configuration property

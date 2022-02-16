@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { RouteComponentProps } from 'react-router'
+import type { RouteComponentProps } from 'react-router'
 import { inject, observer } from 'mobx-react'
-import {
+import type {
   IUserPP,
   IMAchineBuilderXp,
   IOpeningHours,
   PlasticTypeLabel,
 } from 'src/models/user_pp.models'
 
-import { UserStore } from 'src/stores/User/user.store'
+import type { UserStore } from 'src/stores/User/user.store'
 import Heading from 'src/components/Heading'
 import { Box, Image } from 'rebass/styled-components'
 // import slick and styles
@@ -40,8 +40,8 @@ import HowToCountIcon from 'src/assets/icons/icon-how-to.svg'
 import VerifiedBadgeIcon from 'src/assets/icons/icon-verified-badge.svg'
 // import V4MemberIcon from 'src/assets/icons/icon-v4-member.svg'
 
-import { IUploadedFileMeta } from 'src/stores/storage'
-import { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
+import type { IUploadedFileMeta } from 'src/stores/storage'
+import type { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
 import { Loader } from 'src/components/Loader'
 
 import type { ThemeStore } from 'src/stores/Theme/theme.store'

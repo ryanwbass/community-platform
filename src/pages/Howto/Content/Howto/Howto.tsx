@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { RouteComponentProps, Redirect } from 'react-router'
+import type { RouteComponentProps} from 'react-router';
+import { Redirect } from 'react-router'
 import { inject, observer } from 'mobx-react'
-import { HowtoStore } from 'src/stores/Howto/howto.store'
+import type { HowtoStore } from 'src/stores/Howto/howto.store'
 import HowtoDescription from './HowtoDescription/HowtoDescription'
 import Step from './Step/Step'
-import { IHowtoDB } from 'src/models/howto.models'
+import type { IHowtoDB } from 'src/models/howto.models'
 import Text from 'src/components/Text'
 import { Box, Flex } from 'rebass/styled-components'
 import { Button } from 'src/components/Button'
@@ -16,7 +17,7 @@ import WhiteBubble2 from 'src/assets/images/white-bubble_2.svg'
 import WhiteBubble3 from 'src/assets/images/white-bubble_3.svg'
 import { Link } from 'src/components/Links'
 import { Loader } from 'src/components/Loader'
-import { UserStore } from 'src/stores/User/user.store'
+import type { UserStore } from 'src/stores/User/user.store'
 import { HowToComments } from './HowToComments/HowToComments'
 // The parent container injects router props along with a custom slug parameter (RouteComponentProps<IRouterCustomParams>).
 // We also have injected the doc store to access its methods to get doc by slug.

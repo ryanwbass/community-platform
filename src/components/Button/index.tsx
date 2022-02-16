@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Icon, IGlyphs } from '../Icons'
+import type { IGlyphs } from '../Icons';
+import { Icon } from '../Icons'
+import type {
+  ButtonProps as RebassButtonProps} from 'rebass/styled-components';
 import {
-  Button as RebassButton,
-  ButtonProps as RebassButtonProps,
+  Button as RebassButton
 } from 'rebass/styled-components'
 import Text from '../Text'
 import styled from 'styled-components'

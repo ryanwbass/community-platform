@@ -1,16 +1,17 @@
-import { ISelectorList } from 'src/models/selectorList.models'
+import type { ISelectorList } from 'src/models/selectorList.models'
 
 import styled from 'styled-components'
 import theme from 'src/themes/styled.theme'
+import type {
+  BorderRadiusProps,
+  SpaceProps,
+  WidthProps} from 'styled-system';
 import {
   color,
   borderRadius,
-  BorderRadiusProps,
   space,
-  SpaceProps,
   fontSize,
-  width,
-  WidthProps,
+  width
 } from 'styled-system'
 
 import Icon from 'src/components/Icons'

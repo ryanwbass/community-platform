@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Box } from 'rebass'
 import styled from 'styled-components'
-import { UserStore } from 'src/stores/User/user.store'
+import type { UserStore } from 'src/stores/User/user.store'
 import { inject, observer } from 'mobx-react'
 import Flex from 'src/components/Flex'
 import { NotificationList } from 'src/components/Notifications/NotificationList'

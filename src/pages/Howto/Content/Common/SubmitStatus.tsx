@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { HowtoStore } from 'src/stores/Howto/howto.store'
+import type { HowtoStore } from 'src/stores/Howto/howto.store'
 import { inject, observer } from 'mobx-react'
 import Heading from 'src/components/Heading'
 import Icon from 'src/components/Icons'
@@ -8,7 +8,7 @@ import { Button } from 'src/components/Button'
 import { Flex } from 'rebass/styled-components'
 import Text from 'src/components/Text'
 import { Box } from 'rebass/styled-components'
-import { RouteComponentProps } from 'react-router'
+import type { RouteComponentProps } from 'react-router'
 
 interface IProps extends RouteComponentProps<any> {
   onClose: () => void

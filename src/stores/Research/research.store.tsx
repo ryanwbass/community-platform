@@ -7,10 +7,10 @@ import {
   toJS,
 } from 'mobx'
 import { createContext, useContext } from 'react'
-import { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
+import type { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
 import { logger } from 'src/logger'
-import { IUser } from 'src/models'
-import { IResearch } from 'src/models/research.models'
+import type { IUser } from 'src/models'
+import type { IResearch } from 'src/models/research.models'
 import { ModuleStore } from 'src/stores/common/module.store'
 import {
   filterModerableItems,

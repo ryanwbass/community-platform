@@ -1,7 +1,8 @@
-import Icon, { availableGlyphs } from '../Icons'
+import type { availableGlyphs } from '../Icons';
+import Icon from '../Icons'
 import { Flex } from 'rebass/styled-components'
 import Text from '../Text'
-import { IUploadedFileMeta } from 'src/stores/storage'
+import type { IUploadedFileMeta } from 'src/stores/storage'
 import styled from 'styled-components'
 import theme from 'src/themes/styled.theme'
 

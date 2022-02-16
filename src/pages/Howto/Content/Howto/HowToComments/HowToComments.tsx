@@ -5,7 +5,7 @@ import { useCommonStores } from 'src/index'
 import { Button } from 'src/components/Button'
 import { Comment } from 'src/components/Comment/Comment'
 import { CommentTextArea } from 'src/components/Comment/CommentTextArea'
-import { IComment } from 'src/models'
+import type { IComment } from 'src/models'
 import styled from 'styled-components'
 import { logger } from 'src/logger'
 

@@ -5,7 +5,8 @@ import type {
   DBClients,
 } from './types'
 
-import { DBEndpoint, DB_ENDPOINTS } from './endpoints'
+import type { DBEndpoint} from './endpoints';
+import { DB_ENDPOINTS } from './endpoints'
 import { CollectionReference } from './CollectionReference'
 import { AbstractDatabase } from './AbstractDatabase'
 

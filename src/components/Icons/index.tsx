@@ -1,10 +1,11 @@
 import { Component } from 'react'
 import styled from 'styled-components'
+import type {
+  VerticalAlignProps,
+  SpaceProps} from 'styled-system';
 import {
   verticalAlign,
-  VerticalAlignProps,
-  space,
-  SpaceProps,
+  space
 } from 'styled-system'
 
 import {

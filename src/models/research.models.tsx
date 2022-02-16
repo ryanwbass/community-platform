@@ -1,6 +1,6 @@
-import { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
-import { DBDoc, IModerable, ISelectedTags } from 'src/models'
-import { IUploadedFileMeta } from 'src/stores/storage'
+import type { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
+import type { DBDoc, IModerable, ISelectedTags } from 'src/models'
+import type { IUploadedFileMeta } from 'src/stores/storage'
 
 /** All typings related to the Research Module can be found here */
 export namespace IResearch {

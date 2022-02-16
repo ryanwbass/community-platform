@@ -1,12 +1,13 @@
 import { BehaviorSubject, Subscription } from 'rxjs'
 import { stripSpecialCharacters } from 'src/utils/helpers'
 import isUrl from 'is-url'
-import { ISelectedTags } from 'src/models/tags.model'
-import { IDBEndpoint, ILocation } from 'src/models/common.models'
+import type { ISelectedTags } from 'src/models/tags.model'
+import type { IDBEndpoint, ILocation } from 'src/models/common.models'
 import { includesAll } from 'src/utils/filters'
-import { RootStore } from '../index'
-import { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
-import { IUploadedFileMeta, Storage } from '../storage'
+import type { RootStore } from '../index'
+import type { IConvertedFileMeta } from 'src/components/ImageInput/ImageInput'
+import type { IUploadedFileMeta} from '../storage';
+import { Storage } from '../storage'
 import { useCommonStores } from 'src/index'
 import { logger } from 'src/logger'
 

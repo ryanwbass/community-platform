@@ -1,4 +1,4 @@
-import { IMapPin } from 'src/models/maps.models';
+import type { IMapPin } from 'src/models/maps.models';
 
 export function filterMapPinsByType(mapPins: IMapPin[], filters: Array<string>) {
   // filter pins to include matched pin type or subtype

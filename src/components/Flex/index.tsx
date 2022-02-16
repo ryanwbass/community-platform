@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import type {
+  FlexProps as RebassFlexProps} from 'rebass/styled-components';
 import {
-  Flex as RebassFlex,
-  FlexProps as RebassFlexProps,
+  Flex as RebassFlex
 } from 'rebass/styled-components'
 
 export interface IFlexProps extends RebassFlexProps {

@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { getFriendlyMessage } from 'oa-shared'
 import Flex from 'src/components/Flex'
-import { RouteComponentProps, withRouter } from 'react-router'
+import type { RouteComponentProps} from 'react-router';
+import { withRouter } from 'react-router'
 import { Redirect } from 'react-router'
 import Heading from 'src/components/Heading'
 import { Button } from 'src/components/Button'
@@ -10,10 +11,11 @@ import { Link } from 'src/components/Links'
 import { InputField } from 'src/components/Form/Fields'
 import { inject, observer } from 'mobx-react'
 import { Form, Field } from 'react-final-form'
-import { UserStore } from 'src/stores/User/user.store'
+import type { UserStore } from 'src/stores/User/user.store'
+import type {
+  ITextNotificationProps} from 'src/components/Notification/TextNotification';
 import {
-  TextNotification,
-  ITextNotificationProps,
+  TextNotification
 } from 'src/components/Notification/TextNotification'
 import { required } from 'src/utils/validators'
 

@@ -1,16 +1,17 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
-import { RouteComponentProps, withRouter, Route, Switch } from 'react-router'
+import type { RouteComponentProps} from 'react-router';
+import { withRouter, Route, Switch } from 'react-router'
 
-import { MapsStore } from 'src/stores/Maps/maps.store'
+import type { MapsStore } from 'src/stores/Maps/maps.store'
 import { MapView, Controls } from './Content'
 import { Box } from 'rebass/styled-components'
 
 import './styles.css'
 
-import { ILatLng } from 'src/models/maps.models'
+import type { ILatLng } from 'src/models/maps.models'
 import { GetLocation } from 'src/utils/geolocation'
-import { Map } from 'react-leaflet'
+import type { Map } from 'react-leaflet'
 import { MAP_GROUPINGS } from 'src/stores/Maps/maps.groupings'
 
 interface IProps extends RouteComponentProps<any> {

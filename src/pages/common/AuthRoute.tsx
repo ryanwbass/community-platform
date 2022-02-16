@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Route, RouteProps } from 'react-router'
+import type { RouteProps } from 'react-router';
+import { Route } from 'react-router'
 import { observer } from 'mobx-react'
-import { UserRole } from 'src/models/user.models'
+import type { UserRole } from 'src/models/user.models'
 import Text from 'src/components/Text'
 import Flex from 'src/components/Flex'
 import { AuthWrapper } from 'src/components/Auth/AuthWrapper'

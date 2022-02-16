@@ -4,7 +4,7 @@ import Text from 'src/components/Text'
 import { Button } from 'src/components/Button'
 import TagDisplay from 'src/components/Tags/TagDisplay/TagDisplay'
 import FlagIconEvents from 'src/components/Icons/FlagIcon/FlagIcon'
-import { IEvent } from '../../models/events.models'
+import type { IEvent } from '../../models/events.models'
 import { getMonth, getDay, capitalizeFirstLetter } from 'src/utils/helpers'
 import { LinkTargetBlank } from '../Links/LinkTargetBlank/LinkTargetBlank'
 

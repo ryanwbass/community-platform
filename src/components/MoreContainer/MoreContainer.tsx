@@ -1,4 +1,5 @@
-import { Box, BoxProps } from 'rebass/styled-components'
+import type { BoxProps } from 'rebass/styled-components';
+import { Box } from 'rebass/styled-components'
 import styled from 'styled-components'
 import theme from 'src/themes/styled.theme'
 import WhiteBubble0 from 'src/assets/images/white-bubble_0.svg'

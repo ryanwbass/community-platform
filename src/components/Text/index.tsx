@@ -1,6 +1,7 @@
+import type {
+  TextProps as RebassTextProps} from 'rebass/styled-components';
 import {
-  Text as RebassText,
-  TextProps as RebassTextProps,
+  Text as RebassText
 } from 'rebass/styled-components'
 import theme from '../../themes/styled.theme'
 import styled from 'styled-components'
