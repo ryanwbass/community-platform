@@ -31,7 +31,7 @@ import {
   MdLocationOn,
   MdMail,
   MdChevronLeft,
-  MdChevronRight
+  MdChevronRight,
 } from 'react-icons/md'
 import {
   GoCloudUpload,
@@ -39,7 +39,7 @@ import {
   GoTrashcan,
   GoLinkExternal,
 } from 'react-icons/go'
-import { AiFillThunderbolt } from "react-icons/ai";
+import { AiFillThunderbolt } from 'react-icons/ai'
 import { FaSignal, FaFacebookF, FaSlack, FaInstagram } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import SVGs from './svgs'
@@ -135,24 +135,24 @@ export const glyphs: IGlyphs = {
   'chevron-right': <MdChevronRight />,
   star: SVGs.star,
   'star-active': SVGs.starActive,
-  thunderbolt: <AiFillThunderbolt />
+  thunderbolt: <AiFillThunderbolt />,
 }
 
 type WrapperProps = IProps & VerticalAlignProps & SpaceProps
 
 const IconWrapper = styled.div<WrapperProps>`
   display: inline-block;
-  flex: 0 0 ${props => (props.size ? `${props.size}px` : '32px')};
-  width: ${props => (props.size ? `${props.size}px` : '32px')};
-  height: ${props => (props.size ? `${props.size}px` : '32px')};
-  min-width: ${props => (props.size ? `${props.size}px` : '32px')};
-  min-height: ${props => (props.size ? `${props.size}px` : '32px')};
+  flex: 0 0 ${(props) => (props.size ? `${props.size}px` : '32px')};
+  width: ${(props) => (props.size ? `${props.size}px` : '32px')};
+  height: ${(props) => (props.size ? `${props.size}px` : '32px')};
+  min-width: ${(props) => (props.size ? `${props.size}px` : '32px')};
+  min-height: ${(props) => (props.size ? `${props.size}px` : '32px')};
   position: relative;
-  color: ${props => (props.color ? `${props.color}` : 'inherit')};
+  color: ${(props) => (props.color ? `${props.color}` : 'inherit')};
   ${verticalAlign}
   ${space}
 
-  ${props =>
+  ${(props) =>
     props.onClick &&
     `
     cursor: pointer;

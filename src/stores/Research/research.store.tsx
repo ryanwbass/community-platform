@@ -25,9 +25,11 @@ export class ResearchStore extends ModuleStore {
   @observable public allResearchItems: IResearch.ItemDB[] = []
   @observable public activeResearchItem: IResearch.ItemDB | undefined
   @observable
-  public researchUploadStatus: IResearchUploadStatus = getInitialResearchUploadStatus()
+  public researchUploadStatus: IResearchUploadStatus =
+    getInitialResearchUploadStatus()
   @observable
-  public updateUploadStatus: IUpdateUploadStatus = getInitialUpdateUploadStatus()
+  public updateUploadStatus: IUpdateUploadStatus =
+    getInitialUpdateUploadStatus()
 
   constructor() {
     super(null as any, 'research')
@@ -66,10 +68,7 @@ export class ResearchStore extends ModuleStore {
   }
 
   public deleteResearchItem(id: string) {
-    this.db
-      .collection('research')
-      .doc(id)
-      .delete()
+    this.db.collection('research').doc(id).delete()
   }
 
   public async moderateResearch(research: IResearch.ItemDB) {
@@ -155,7 +154,7 @@ export class ResearchStore extends ModuleStore {
         const updateWithMeta = { ...update }
         if (update.images.length > 0) {
           const imgMeta = await this.uploadCollectionBatch(
-            update.images.filter(img => !!img) as IConvertedFileMeta[],
+            update.images.filter((img) => !!img) as IConvertedFileMeta[],
             COLLECTION_NAME,
             id,
           )
@@ -166,7 +165,7 @@ export class ResearchStore extends ModuleStore {
 
         // populate DB
         const existingUpdateIndex = item.updates.findIndex(
-          upd => upd._id === (update as IResearch.UpdateDB)._id,
+          (upd) => upd._id === (update as IResearch.UpdateDB)._id,
         )
         const newItem = {
           ...toJS(item),

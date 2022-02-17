@@ -88,7 +88,7 @@ export class ProfileModal extends React.Component<IProps> {
             </ModalLink>
           </Flex>
           <Flex>
-            {COMMUNITY_PAGES_PROFILE.map(page => (
+            {COMMUNITY_PAGES_PROFILE.map((page) => (
               <ModalLink
                 key={page.path}
                 to={page.path}

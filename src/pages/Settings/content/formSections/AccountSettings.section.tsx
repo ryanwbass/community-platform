@@ -52,7 +52,7 @@ export class AccountSettingsSection extends React.Component<any, IState> {
           <ChangeEmailForm userStore={this.props.userStore} />
           <ChangePasswordForm userStore={this.props.userStore} />
           <ProfileDelete
-            onConfirmation={reauthPw => this.deleteProfile(reauthPw)}
+            onConfirmation={(reauthPw) => this.deleteProfile(reauthPw)}
           />
           v{VERSION}
         </Box>

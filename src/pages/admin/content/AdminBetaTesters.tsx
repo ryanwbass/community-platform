@@ -61,7 +61,7 @@ export class AdminBetaTesters extends React.Component<IProps, IState> {
       <Box mt={4}>
         <Heading>List of Beta Testers</Heading>
         <Box mb={3} bg={'white'} p={2}>
-          {betaTesters.map(u => (
+          {betaTesters.map((u) => (
             <Flex key={u.userName}>
               <Text flex={1}>{u.userName}</Text>
               <AuthWrapper roleRequired="admin">

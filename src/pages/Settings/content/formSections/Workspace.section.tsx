@@ -50,7 +50,7 @@ export class WorkspaceSection extends React.Component<any, IState> {
                     value={workspace.label}
                     name="workspaceType"
                     isSelected={workspace.label === input.value}
-                    onChange={v => {
+                    onChange={(v) => {
                       input.onChange(v)
                       input.onBlur()
                     }}

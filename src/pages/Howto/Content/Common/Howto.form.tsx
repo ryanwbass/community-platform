@@ -143,7 +143,7 @@ export class HowtoForm extends React.PureComponent<IProps, IState> {
   private calculatedFields = createDecorator({
     field: 'title',
     updates: {
-      slug: title => stripSpecialCharacters(title).toLowerCase(),
+      slug: (title) => stripSpecialCharacters(title).toLowerCase(),
     },
   })
 
@@ -162,7 +162,7 @@ export class HowtoForm extends React.PureComponent<IProps, IState> {
           />
         )}
         <Form
-          onSubmit={v => {
+          onSubmit={(v) => {
             this.onSubmit(v as IHowtoFormInput)
           }}
           initialValues={formValues}
@@ -325,7 +325,7 @@ export class HowtoForm extends React.PureComponent<IProps, IState> {
                                   flexDirection={'column'}
                                   alignItems={'center'}
                                 >
-                                  {formValues.files.map(file => (
+                                  {formValues.files.map((file) => (
                                     <FileInfo
                                       allowDownload
                                       file={file}

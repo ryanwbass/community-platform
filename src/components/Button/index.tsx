@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Icon, IGlyphs } from '../Icons'
 import {
   Button as RebassButton,

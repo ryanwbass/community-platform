@@ -1,5 +1,10 @@
 import { observable, action, makeObservable, toJS } from 'mobx'
-import { INotification, IUser, IUserDB, NotificationType } from 'src/models/user.models'
+import {
+  INotification,
+  IUser,
+  IUserDB,
+  NotificationType,
+} from 'src/models/user.models'
 import { IUserPP, IUserPPDB } from 'src/models/user_pp.models'
 import { IFirebaseUser, auth, EmailAuthProvider } from 'src/utils/firebase'
 import { Storage } from '../storage'
@@ -141,10 +146,13 @@ export class UserStore extends ModuleStore {
     // sometimes mobx has issues with de-serialising obseverables so try to force it using toJS
     const updatedUserProfile = { ...toJS(user), ...toJS(values) }
 
-
-    if (updatedUserProfile.location?.latlng
-      && Object.keys(updatedUserProfile.location).length == 1) {
-      updatedUserProfile.location = await getLocationData(updatedUserProfile.location.latlng);
+    if (
+      updatedUserProfile.location?.latlng &&
+      Object.keys(updatedUserProfile.location).length == 1
+    ) {
+      updatedUserProfile.location = await getLocationData(
+        updatedUserProfile.location.latlng,
+      )
     }
 
     await this.db
@@ -216,10 +224,7 @@ export class UserStore extends ModuleStore {
     try {
       await authUser.reauthenticateAndRetrieveDataWithCredential(credential)
       const user = this.user as IUser
-      await this.db
-        .collection(COLLECTION_NAME)
-        .doc(user.userName)
-        .delete()
+      await this.db.collection(COLLECTION_NAME).doc(user.userName).delete()
       await authUser.delete()
       // TODO - delete user avatar
       // TODO - show deleted notification
@@ -253,16 +258,20 @@ export class UserStore extends ModuleStore {
   }
 
   @action
-  public async updateUsefulHowTos(howtoId: string, howtoAuthor: string, howtoSlug: string) {
+  public async updateUsefulHowTos(
+    howtoId: string,
+    howtoAuthor: string,
+    howtoSlug: string,
+  ) {
     if (this.user) {
       // toggle entry on user votedUsefulHowtos to either vote or unvote a howto
       // this will updated the main howto via backend `updateUserVoteStats` function
       const votedUsefulHowtos = toJS(this.user.votedUsefulHowtos) || {}
-      votedUsefulHowtos[howtoId] = !votedUsefulHowtos[howtoId];
+      votedUsefulHowtos[howtoId] = !votedUsefulHowtos[howtoId]
 
       if (votedUsefulHowtos[howtoId]) {
         //get how to author from howtoid
-        this.triggerNotification('howto_useful', howtoAuthor, howtoSlug);
+        this.triggerNotification('howto_useful', howtoAuthor, howtoSlug)
       }
       await this.updateUserProfile({ votedUsefulHowtos })
     }
@@ -273,7 +282,7 @@ export class UserStore extends ModuleStore {
   // strange implementation return the unsubscribe object on subscription, so stored
   // to authUnsubscribe variable for use later
   private _listenToAuthStateChanges(checkEmailVerification = false) {
-    this.authUnsubscribe = auth.onAuthStateChanged(authUser => {
+    this.authUnsubscribe = auth.onAuthStateChanged((authUser) => {
       this.authUser = authUser
       if (authUser) {
         this.userSignedIn(authUser)
@@ -292,34 +301,37 @@ export class UserStore extends ModuleStore {
   }
 
   @action
-  public async triggerNotification(type: NotificationType, username: string,
-    howToId?: string) {
-    const howToUrl = '/how-to/';
+  public async triggerNotification(
+    type: NotificationType,
+    username: string,
+    howToId?: string,
+  ) {
+    const howToUrl = '/how-to/'
     try {
-      const triggeredBy = this.activeUser;
+      const triggeredBy = this.activeUser
       if (triggeredBy) {
         // do not get notified when you're the one making a new comment or how-to useful vote
-        if(triggeredBy.userName === username){
-          return;
+        if (triggeredBy.userName === username) {
+          return
         }
         const newNotification: INotification = {
           _id: randomID(),
           _created: new Date().toISOString(),
           triggeredBy: {
             displayName: triggeredBy.displayName,
-            userId: triggeredBy._id
+            userId: triggeredBy._id,
           },
           relevantUrl: howToUrl + howToId,
           type: type,
-          read: false
-        } 
+          read: false,
+        }
 
         const lookup = await this.db
           .collection<IUserPP>(COLLECTION_NAME)
           .getWhere('userName', '==', username)
 
-        const user = lookup[0];
-        
+        const user = lookup[0]
+
         const updatedUser: IUser = {
           ...toJS(user),
           notifications: user.notifications
@@ -331,9 +343,8 @@ export class UserStore extends ModuleStore {
           .collection<IUser>(COLLECTION_NAME)
           .doc(updatedUser._authID)
 
-        await dbRef.set(updatedUser)        
+        await dbRef.set(updatedUser)
       }
-
     } catch (err) {
       console.error(err)
       throw new Error(err)
@@ -345,10 +356,8 @@ export class UserStore extends ModuleStore {
     try {
       const user = this.activeUser
       if (user) {
-        const notifications = toJS(user.notifications);
-        notifications?.forEach(notification =>
-          notification.read = true
-        );
+        const notifications = toJS(user.notifications)
+        notifications?.forEach((notification) => (notification.read = true))
         const updatedUser: IUser = {
           ...toJS(user),
           notifications,
@@ -358,13 +367,12 @@ export class UserStore extends ModuleStore {
           .collection<IUser>(COLLECTION_NAME)
           .doc(updatedUser._authID)
 
-        await dbRef.set(updatedUser);
-        await this.updateUserProfile({ notifications });
-
+        await dbRef.set(updatedUser)
+        await this.updateUserProfile({ notifications })
       }
     } catch (err) {
-      console.error(err);
-      throw new Error(err);
+      console.error(err)
+      throw new Error(err)
     }
   }
 
@@ -374,7 +382,7 @@ export class UserStore extends ModuleStore {
       const user = this.activeUser
       if (id && user && user.notifications) {
         const notifications = toJS(user.notifications).filter(
-          notification => !(notification._id === id),
+          (notification) => !(notification._id === id),
         )
 
         const updatedUser: IUser = {
@@ -395,8 +403,6 @@ export class UserStore extends ModuleStore {
     }
   }
 }
-
-
 
 interface IUserUpdateStatus {
   Start: boolean

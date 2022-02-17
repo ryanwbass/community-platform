@@ -103,7 +103,9 @@ export class VirtualizedFlex extends React.Component<IProps, IState> {
    */
   private _calcTotalColumns(containerWidth: number, breakpoints: number[]) {
     return Math.min(
-      [0, ...breakpoints, Infinity].findIndex(width => containerWidth < width),
+      [0, ...breakpoints, Infinity].findIndex(
+        (width) => containerWidth < width,
+      ),
       breakpoints.length,
     )
   }
@@ -122,7 +124,7 @@ export class VirtualizedFlex extends React.Component<IProps, IState> {
             scrollTop={scrollTop}
             rowCount={dataRows.length}
             overscanRowCount={2}
-            rowRenderer={rowProps => this.rowRenderer(rowProps)}
+            rowRenderer={(rowProps) => this.rowRenderer(rowProps)}
             deferredMeasurementCache={cache}
             rowHeight={cache.rowHeight}
           />
@@ -134,6 +136,6 @@ export class VirtualizedFlex extends React.Component<IProps, IState> {
   static defaultProps: IProps = {
     widthBreakpoints: themes.breakpoints.map(emStringToPx),
     data: [],
-    renderItem: data => <div>RenderItem {data}</div>,
+    renderItem: (data) => <div>RenderItem {data}</div>,
   }
 }

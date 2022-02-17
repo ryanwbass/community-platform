@@ -30,7 +30,7 @@ export const ResearchSubmitStatus = observer((props: IProps) => {
         />
       </Flex>
       <Box margin="15px 0" p={0}>
-        {Object.keys(uploadStatus).map(key => (
+        {Object.keys(uploadStatus).map((key) => (
           <Flex p={0} alignItems="center" key={key}>
             <Icon
               marginRight="4px"
@@ -74,7 +74,7 @@ export const UpdateSubmitStatus = observer((props: IProps) => {
         />
       </Flex>
       <Box margin="15px 0" p={0}>
-        {Object.keys(uploadStatus).map(key => (
+        {Object.keys(uploadStatus).map((key) => (
           <Flex p={0} alignItems="center" key={key}>
             <Icon
               marginRight="4px"

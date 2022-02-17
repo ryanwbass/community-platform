@@ -14,7 +14,7 @@ const FlagIconEvents = styled(FlagIcon)`
   height: 23px;
   width: 35px !important;
 
-  @media only screen and (max-width: ${props => props.theme.breakpoints[1]}) {
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints[1]}) {
     height: 15px;
     width: 25px !important;
   }

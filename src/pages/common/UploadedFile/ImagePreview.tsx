@@ -27,8 +27,9 @@ export default class ImagePreview extends React.Component<IProps, IState> {
     return (
       <div className="img-preview__container">
         <img
-          className={`img-preview__image ${this.state.imageLoaded &&
-            'loaded'} `}
+          className={`img-preview__image ${
+            this.state.imageLoaded && 'loaded'
+          } `}
           src={this.props.imageSrc}
           alt={this.props.imageAlt}
           onLoad={this.imageLoaded}

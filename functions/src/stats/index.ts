@@ -89,7 +89,7 @@ async function updateHowtoVoteStats(change: IDBDocChange) {
   const votedBefore = (change.before.data() as IUserDB)?.votedUsefulHowtos || {}
   const votedAfter = (change.after.data() as IUserDB)?.votedUsefulHowtos || {}
   // look for changes to votes, there should only be one but run but run multiple in parallel in case
-  const updates = Object.keys(votedAfter).map(async howtoId => {
+  const updates = Object.keys(votedAfter).map(async (howtoId) => {
     if (votedAfter[howtoId] !== votedBefore[howtoId]) {
       // both true and false values are stored (to make it easier to unvote)
       // so increment counter by +/-1 depending on updated value using firebase increment utility

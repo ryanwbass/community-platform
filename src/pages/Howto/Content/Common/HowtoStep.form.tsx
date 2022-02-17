@@ -202,7 +202,7 @@ class HowtoStep extends PureComponent<IProps, IState> {
             data-cy="step-videoUrl"
             component={InputField}
             placeholder="https://youtube.com/watch?v="
-            validate={url => this.validateMedia(url)}
+            validate={(url) => this.validateMedia(url)}
             validateFields={[]}
             isEqual={COMPARISONS.textInput}
           />

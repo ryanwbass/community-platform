@@ -29,17 +29,17 @@ export interface ITextProps {
   critical?: boolean
   dashed?: boolean
   cropBottomRight?: boolean
-  theme?: any;
+  theme?: any
 }
 
-export const uppercase = props =>
+export const uppercase = (props) =>
   props.uppercase
     ? {
         textTransform: 'uppercase',
       }
     : null
 
-export const capitalize = props =>
+export const capitalize = (props) =>
   props.capitalize
     ? {
         textTransform: 'capitalize',

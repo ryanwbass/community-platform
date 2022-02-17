@@ -17,7 +17,7 @@ const ResearchList = observer(() => {
           Research topics. Can we...
         </Heading>
       </Flex>
-      {filteredResearches.map(item => (
+      {filteredResearches.map((item) => (
         <ResearchListItem key={item._id} item={item} />
       ))}
       <Box mb={4}>

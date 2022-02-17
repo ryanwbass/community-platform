@@ -92,7 +92,12 @@ export const EventCard = (props: IProps) => (
     >
       <FlagIconEvents code={props.event.location.countryCode} />
       <Text auxiliary width={1} ml={[1, 1, 2]}>
-        {[props.event.location.administrative, props.event.location?.countryCode?.toUpperCase()].filter(Boolean).join(', ')}
+        {[
+          props.event.location.administrative,
+          props.event.location?.countryCode?.toUpperCase(),
+        ]
+          .filter(Boolean)
+          .join(', ')}
       </Text>
     </Flex>
     <Flex
@@ -104,7 +109,7 @@ export const EventCard = (props: IProps) => (
       mb={[2, 2, 0]}
     >
       {props.event.tags &&
-        Object.keys(props.event.tags).map(tag => {
+        Object.keys(props.event.tags).map((tag) => {
           return <TagDisplay key={tag} tagKey={tag} />
         })}
     </Flex>

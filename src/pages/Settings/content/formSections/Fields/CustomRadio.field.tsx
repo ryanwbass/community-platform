@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from 'react'
 import { Label, HiddenInput } from '../elements'
 import { Image, Flex, Box } from 'rebass/styled-components'
 import Text from 'src/components/Text'
@@ -69,7 +69,7 @@ class CustomRadioField extends Component<IProps, IState> {
           checked={isSelected}
           validate={required ? isRequired : undefined}
           validateFields={[]}
-          onChange={v => {
+          onChange={(v) => {
             this.props.onChange(v.target.value)
           }}
         />

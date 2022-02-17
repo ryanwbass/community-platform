@@ -40,7 +40,7 @@ export default class NotificationsDesktop extends Component<IProps, IState> {
     const areThereNotifications = Boolean(
       user?.notifications?.length &&
         !(
-          user?.notifications?.filter(notification => !notification.read)
+          user?.notifications?.filter((notification) => !notification.read)
             .length === 0
         ),
     )

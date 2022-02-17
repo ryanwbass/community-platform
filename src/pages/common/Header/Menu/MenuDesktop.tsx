@@ -10,11 +10,11 @@ import { getSupportedModules } from 'src/modules'
 const MenuLink = styled(NavLink).attrs(() => ({
   activeClassName: 'current',
 }))`
-  padding: 0px ${props => props.theme.space[4]}px;
+  padding: 0px ${(props) => props.theme.space[4]}px;
   color: ${'black'};
   position: relative;
   > div {
-    z-index: ${props => props.theme.zIndex.default};
+    z-index: ${(props) => props.theme.zIndex.default};
     position: relative;
     &:hover {
       opacity: 0.7;
@@ -28,11 +28,11 @@ const MenuLink = styled(NavLink).attrs(() => ({
       display: block;
       position: absolute;
       bottom: -6px;
-      background-color: ${props => props.theme.colors.yellow.base};
+      background-color: ${(props) => props.theme.colors.yellow.base};
       mask-size: contain;
       mask-image: url(${MenuCurrent});
       mask-repeat: no-repeat;
-      z-index: ${props => props.theme.zIndex.level};
+      z-index: ${(props) => props.theme.zIndex.level};
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
@@ -45,7 +45,7 @@ export class MenuDesktop extends Component {
     return (
       <>
         <Flex alignItems={'center'}>
-          {getAvailablePageList(getSupportedModules()).map(page => {
+          {getAvailablePageList(getSupportedModules()).map((page) => {
             const link = (
               <Flex key={page.path}>
                 <MenuLink to={page.path} data-cy="page-link">

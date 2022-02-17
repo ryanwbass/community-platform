@@ -15,6 +15,5 @@ export { DBDoc, IDBEndpoint, IEventDB, IHowtoDB, IHowtoStats, IUserDB, IMapPin }
 import { generateDBEndpoints } from 'oa-shared'
 export const DB_ENDPOINTS = generateDBEndpoints()
 
-export type IDBDocChange = functions.Change<
-  functions.firestore.DocumentSnapshot
->
+export type IDBDocChange =
+  functions.Change<functions.firestore.DocumentSnapshot>

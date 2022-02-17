@@ -19,7 +19,7 @@ const CreateUpdate = observer((props: IProps) => {
       let loggedInUser = store.activeUser
       if (!loggedInUser) {
         // TODO - handle the case where user is still loading
-        await new Promise<void>(resolve =>
+        await new Promise<void>((resolve) =>
           setTimeout(() => {
             loggedInUser = store.activeUser
             resolve()

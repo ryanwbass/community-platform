@@ -71,11 +71,11 @@ export class ChangeEmailForm extends React.Component<IProps, IState> {
             })
           }
         >
-            Change email
-          </Button>
+          Change email
+        </Button>
         {this.state.showChangeEmailForm && (
           <Form
-            onSubmit={values => this.submit(values as IFormValues)}
+            onSubmit={(values) => this.submit(values as IFormValues)}
             initialValues={this.state.formValues}
             render={({ submitting, values, handleSubmit }) => {
               const { password, newEmail } = values

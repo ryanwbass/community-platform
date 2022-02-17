@@ -46,7 +46,7 @@ class ForgotPasswordPage extends React.Component<IProps, IState> {
     const disabled = this.state.disabled || email === ''
     return (
       <Form
-        onSubmit={e => this.onSignupSubmit(e)}
+        onSubmit={(e) => this.onSignupSubmit(e)}
         render={() => (
           <form>
             <Flex

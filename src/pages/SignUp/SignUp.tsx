@@ -86,15 +86,11 @@ class SignUpPage extends React.Component<IProps, IState> {
   public render() {
     return (
       <Form
-        onSubmit={v => this.onSignupSubmit(v as IFormValues)}
+        onSubmit={(v) => this.onSignupSubmit(v as IFormValues)}
         validate={async (values: any) => {
           const validationSchema = object({
-            displayName: string()
-              .min(2, 'Too short')
-              .required('Required'),
-            email: string()
-              .email('Invalid email')
-              .required('Required'),
+            displayName: string().min(2, 'Too short').required('Required'),
+            email: string().email('Invalid email').required('Required'),
             password: string().required('Password is required'),
             'confirm-password': string()
               .oneOf(

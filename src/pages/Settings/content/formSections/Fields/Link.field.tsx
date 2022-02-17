@@ -60,7 +60,7 @@ export class ProfileLinkField extends Component<IProps, IState> {
 
   render() {
     const { index, name } = this.props
-    const DeleteButton = props => (
+    const DeleteButton = (props) => (
       <Button
         data-cy={`delete-link-${index}`}
         icon={'delete'}
@@ -94,11 +94,11 @@ export class ProfileLinkField extends Component<IProps, IState> {
         <Field
           data-cy={`input-link-${index}`}
           name={`${name}.url`}
-          validate={value => this.validateDependingOnType(value)}
+          validate={(value) => this.validateDependingOnType(value)}
           validateFields={[]}
           component={InputField}
           placeholder="Link"
-          format={v => formatLink(v, this.state.linkType)}
+          format={(v) => formatLink(v, this.state.linkType)}
           formatOnBlur={true}
         />
         <DeleteButton

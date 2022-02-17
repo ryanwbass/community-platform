@@ -17,10 +17,10 @@ import { UserStore } from 'src/stores/User/user.store'
 import { isModuleSupported, MODULE } from 'src/modules'
 import { AuthWrapper } from 'src/components/Auth/AuthWrapper'
 
-interface IProps { }
+interface IProps {}
 
 interface IInjectedProps extends IProps {
-  mobileMenuStore: MobileMenuStore,
+  mobileMenuStore: MobileMenuStore
   userStore: UserStore
 }
 
@@ -104,7 +104,7 @@ export class Header extends Component<IProps> {
     const areThereNotifications = Boolean(
       user?.notifications?.length &&
         !(
-          user?.notifications?.filter(notification => !notification.read)
+          user?.notifications?.filter((notification) => !notification.read)
             .length === 0
         ),
     )

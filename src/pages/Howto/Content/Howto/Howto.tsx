@@ -100,9 +100,17 @@ export class Howto extends React.Component<
     }
   }
 
-  private onUsefulClick = async (howtoId: string, howtoCreatedBy: string, howToSlug: string) => {
+  private onUsefulClick = async (
+    howtoId: string,
+    howtoCreatedBy: string,
+    howToSlug: string,
+  ) => {
     // Fire & forget
-    await this.injected.userStore.updateUsefulHowTos(howtoId, howtoCreatedBy, howToSlug)
+    await this.injected.userStore.updateUsefulHowTos(
+      howtoId,
+      howtoCreatedBy,
+      howToSlug,
+    )
   }
 
   public async componentDidMount() {
@@ -128,7 +136,13 @@ export class Howto extends React.Component<
             needsModeration={this.store.needsModeration(activeHowto)}
             userVotedUseful={this.store.userVotedActiveHowToUseful}
             moderateHowto={this.moderateHowto}
-            onUsefulClick={() => this.onUsefulClick(activeHowto._id, activeHowto._createdBy, activeHowto.slug)}
+            onUsefulClick={() =>
+              this.onUsefulClick(
+                activeHowto._id,
+                activeHowto._createdBy,
+                activeHowto.slug,
+              )
+            }
           />
           <Box mt={9}>
             {activeHowto.steps.map((step: any, index: number) => (

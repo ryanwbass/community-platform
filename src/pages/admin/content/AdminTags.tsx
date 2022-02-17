@@ -54,7 +54,10 @@ export class AdminTags extends React.Component<IProps, IState> {
 
   onSelectedTagsChanged(values: ITagCategorySelect[]) {
     this.setState({
-      tagForm: { ...this.state.tagForm, categories: values.map(v => v.value) },
+      tagForm: {
+        ...this.state.tagForm,
+        categories: values.map((v) => v.value),
+      },
     })
   }
 
@@ -103,7 +106,7 @@ export class AdminTags extends React.Component<IProps, IState> {
                 isMulti
                 options={TAG_CATEGORIES}
                 value={this._getSelected()}
-                onChange={values => this.onSelectedTagsChanged(values as any)}
+                onChange={(values) => this.onSelectedTagsChanged(values as any)}
               />
               {msg && <Text color="red">{msg}</Text>}
               <Flex mt={3}>
@@ -136,7 +139,7 @@ export class AdminTags extends React.Component<IProps, IState> {
     const selected = this.state.tagForm.categories
       ? this.state.tagForm.categories
       : []
-    return TAG_CATEGORIES.filter(tag => selected.includes(tag.value))
+    return TAG_CATEGORIES.filter((tag) => selected.includes(tag.value))
   }
 }
 

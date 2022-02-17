@@ -5,7 +5,7 @@ import { Box } from 'rebass/styled-components'
 import Icon from 'src/components/Icons'
 import { Field } from 'react-final-form'
 
-export const Label = props => (
+export const Label = (props) => (
   <Flex
     as="label"
     flexDirection={['row', 'row', 'column']}
@@ -37,7 +37,7 @@ export const HiddenInput = styled(Field)`
   height: 0;
 `
 
-export const FlexSectionContainer = props => (
+export const FlexSectionContainer = (props) => (
   <Flex
     card
     mediumRadius
@@ -51,7 +51,7 @@ export const FlexSectionContainer = props => (
   </Flex>
 )
 
-export const ArrowIsSectionOpen = props => (
+export const ArrowIsSectionOpen = (props) => (
   <Box
     height="20px"
     sx={{

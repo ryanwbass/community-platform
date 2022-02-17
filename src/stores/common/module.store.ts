@@ -75,7 +75,7 @@ export class ModuleStore {
     this.activeCollectionSubscription.unsubscribe()
     this.activeCollectionSubscription = this.db
       .collection(endpoint)
-      .stream(data => {
+      .stream((data) => {
         this.allDocs$.next(data)
       })
   }
@@ -143,7 +143,7 @@ export class ModuleStore {
   ) {
     const selectedTagsArr = Object.keys(selectedTags)
     return selectedTagsArr.length > 0
-      ? collection.filter(obj => {
+      ? collection.filter((obj) => {
           const tags = obj.tags ? Object.keys(obj.tags) : null
           return tags ? includesAll(selectedTagsArr, tags) : false
         })
@@ -153,7 +153,7 @@ export class ModuleStore {
     collection: T[] = [],
     selectedLocation: ILocation,
   ) {
-    return collection.filter(obj => {
+    return collection.filter((obj) => {
       return obj.location.name === selectedLocation.name
     })
   }
@@ -188,7 +188,7 @@ export class ModuleStore {
     collection: string,
     id: string,
   ) {
-    const promises = files.map(async file => {
+    const promises = files.map(async (file) => {
       return this.uploadFileToCollection(file, collection, id)
     })
     return Promise.all(promises)

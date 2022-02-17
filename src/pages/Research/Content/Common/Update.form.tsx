@@ -44,7 +44,7 @@ const Label = styled.label`
   display: block;
 `
 
-const beforeUnload = function(e) {
+const beforeUnload = function (e) {
   e.preventDefault()
   e.returnValue = CONFIRM_DIALOG_MSG
 }
@@ -74,7 +74,7 @@ const UpdateForm = observer((props: IProps) => {
   }
 
   // Display a confirmation dialog when leaving the page outside the React Router
-  const unloadDecorator = form => {
+  const unloadDecorator = (form) => {
     return form.subscribe(
       ({ dirty }) => {
         if (dirty && !store.updateUploadStatus.Complete) {
@@ -115,7 +115,7 @@ const UpdateForm = observer((props: IProps) => {
         />
       )}
       <Form
-        onSubmit={v => {
+        onSubmit={(v) => {
           onSubmit(v as IResearch.Update)
         }}
         initialValues={props.formValues}
@@ -149,7 +149,6 @@ const UpdateForm = observer((props: IProps) => {
                         ) : (
                           <span>Edit your update</span>
                         )}{' '}
-                        
                       </Heading>
                       <Box ml="15px">
                         <ElWithBeforeIcon

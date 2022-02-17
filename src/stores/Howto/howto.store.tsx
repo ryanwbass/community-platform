@@ -118,7 +118,7 @@ export class HowtoStore extends ModuleStore {
       })
 
       // Currently Fuse returns objects containing the search items, hence the need to map. https://github.com/krisk/Fuse/issues/532
-      return fuse.search(this.searchValue).map(v => v.item)
+      return fuse.search(this.searchValue).map((v) => v.item)
     }
   }
 
@@ -197,7 +197,7 @@ export class HowtoStore extends ModuleStore {
       if (id && howto && user && howto.comments) {
         const comments = toJS(howto.comments)
         const commentIndex = comments.findIndex(
-          comment => comment._creatorId === user._id && comment._id === id,
+          (comment) => comment._creatorId === user._id && comment._id === id,
         )
         if (commentIndex !== -1) {
           comments[commentIndex].text = newText.slice(0, 400).trim()
@@ -231,7 +231,7 @@ export class HowtoStore extends ModuleStore {
       const user = this.activeUser
       if (id && howto && user && howto.comments) {
         const comments = toJS(howto.comments).filter(
-          comment => !(comment._creatorId === user._id && comment._id === id),
+          (comment) => !(comment._creatorId === user._id && comment._id === id),
         )
 
         const updatedHowto: IHowto = {
@@ -341,7 +341,7 @@ export class HowtoStore extends ModuleStore {
     for (const step of steps) {
       // determine any new images to upload
       const stepImages = (step.images as IConvertedFileMeta[]).filter(
-        img => !!img,
+        (img) => !!img,
       )
       const imgMeta = await this.uploadCollectionBatch(
         stepImages,
@@ -351,7 +351,7 @@ export class HowtoStore extends ModuleStore {
       step.images = imgMeta
       stepsWithImgMeta.push({
         ...step,
-        images: imgMeta.map(f => {
+        images: imgMeta.map((f) => {
           if (f === undefined) {
             return null
           }

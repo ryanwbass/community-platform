@@ -9,7 +9,7 @@ declare module 'styled-components' {
     typography: {
       auxiliary: CSSObject
       paragraph: CSSObject
-    },
+    }
 
     colors: {
       white: string

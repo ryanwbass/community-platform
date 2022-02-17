@@ -35,7 +35,7 @@ export class Loader extends Component<IProps> {
 
   get injected() {
     return this.props as {
-      themeStore: ThemeStore,
+      themeStore: ThemeStore
     }
   }
 

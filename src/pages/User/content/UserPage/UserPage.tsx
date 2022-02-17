@@ -60,7 +60,7 @@ interface IBackgroundImageProps {
 }
 
 interface InjectedProps extends RouteComponentProps<IRouterCustomParams> {
-  userStore: UserStore,
+  userStore: UserStore
   themeStore: ThemeStore
 }
 
@@ -192,8 +192,7 @@ const SliderImage = styled.div`
     background-image: url(${props.bgImg});
   `}
 
-
-  @media only screen and (min-width: ${props => props.theme.breakpoints[2]}) {
+  @media only screen and (min-width: ${(props) => props.theme.breakpoints[2]}) {
     height: 500px;
   }
 `
@@ -314,7 +313,7 @@ export class UserPage extends React.Component<
       <div>
         <h4>We collect the following plastic types:</h4>
         <Flex flexWrap="wrap">
-          {plasticTypes.map(plasticType => {
+          {plasticTypes.map((plasticType) => {
             return (
               <PlasticType key={plasticType}>
                 {renderIcon(plasticType)}
@@ -330,7 +329,7 @@ export class UserPage extends React.Component<
     return (
       <div>
         <h4>We're open on:</h4>
-        {openingHours.map(openingObj => {
+        {openingHours.map((openingObj) => {
           return (
             <OpeningHours key={openingObj.day}>
               {openingObj.day}: {openingObj.openFrom} - {openingObj.openTo}
@@ -416,7 +415,9 @@ export class UserPage extends React.Component<
         ? true
         : false
 
-    const userLinks = user?.links.filter(linkItem => !['discord', 'forum'].includes(linkItem.label))
+    const userLinks = user?.links.filter(
+      (linkItem) => !['discord', 'forum'].includes(linkItem.label),
+    )
 
     return (
       <ProfileWrapper mt={4} mb={6}>
@@ -427,7 +428,7 @@ export class UserPage extends React.Component<
           <Box width={['100%', '100%', '80%']}>
             <Box sx={{ display: ['block', 'block', 'none'] }}>
               <MobileBadge>
-                <Avatar profileType={user.profileType}/>
+                <Avatar profileType={user.profileType} />
               </MobileBadge>
             </Box>
 
@@ -491,10 +492,7 @@ export class UserPage extends React.Component<
             sx={{ display: ['none', 'none', 'block'] }}
           >
             <MobileBadge>
-              <Avatar
-                width="150"
-                profileType={user.profileType}
-                />
+              <Avatar width="150" profileType={user.profileType} />
 
               {shouldRenderUserStatsBox && this.renderUserStatsBox(user)}
             </MobileBadge>
@@ -512,9 +510,19 @@ const sliderSettings = {
   slidesToScroll: 1,
   adaptiveHeight: false,
   nextArrow: (
-    <Icon glyph="chevron-right" color={theme.colors.white} size={60} marginRight="4px" />
+    <Icon
+      glyph="chevron-right"
+      color={theme.colors.white}
+      size={60}
+      marginRight="4px"
+    />
   ),
   prevArrow: (
-    <Icon glyph="chevron-left" color={theme.colors.white} size={60} marginRight="4px" />
+    <Icon
+      glyph="chevron-left"
+      color={theme.colors.white}
+      size={60}
+      marginRight="4px"
+    />
   ),
 }

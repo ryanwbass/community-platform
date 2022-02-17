@@ -58,14 +58,11 @@ export class MapsStore extends ModuleStore {
     // HACK - ARH - 2019/12/09 filter unaccepted pins, should be done serverside
     const activeUser = this.activeUser
     const isAdmin = hasAdminRights(activeUser)
-    pins = pins.filter(p => {
+    pins = pins.filter((p) => {
       const isPinAccepted = p.moderation === 'accepted'
       const wasCreatedByUser = activeUser && p._id === activeUser.userName
       const isAdminAndAccepted = isAdmin && p.moderation !== 'rejected'
-      return (
-        p.type &&
-        (isPinAccepted || wasCreatedByUser || isAdminAndAccepted)
-      )
+      return p.type && (isPinAccepted || wasCreatedByUser || isAdminAndAccepted)
     })
     if (IS_MOCK) {
       pins = MOCK_PINS
@@ -92,7 +89,7 @@ export class MapsStore extends ModuleStore {
     */
     this.mapPins$ = this.db
       .collection<IMapPin>(COLLECTION_NAME)
-      .stream(pins => {
+      .stream((pins) => {
         // TODO - make more efficient by tracking only new pins received and updating
         if (pins.length !== this.mapPins.length) {
           this.processDBMapPins(pins)
@@ -147,10 +144,7 @@ export class MapsStore extends ModuleStore {
 
   // get base pin geo information
   public async getPin(id: string) {
-    const pin = await this.db
-      .collection<IMapPin>(COLLECTION_NAME)
-      .doc(id)
-      .get()
+    const pin = await this.db.collection<IMapPin>(COLLECTION_NAME).doc(id).get()
     logger.debug({ pin }, 'MapsStore.getPin')
     return pin as IMapPin
   }
@@ -162,10 +156,7 @@ export class MapsStore extends ModuleStore {
     if (!isAllowToPin(pin, this.activeUser)) {
       return false
     }
-    return this.db
-      .collection(COLLECTION_NAME)
-      .doc(pin._id)
-      .set(pin)
+    return this.db.collection(COLLECTION_NAME).doc(pin._id).set(pin)
   }
 
   // Moderate Pin
@@ -184,9 +175,9 @@ export class MapsStore extends ModuleStore {
   }
 
   public async setUserPin(user: IUserPP) {
-    const type = user.profileType || 'member';
+    const type = user.profileType || 'member'
     // NOTE - if pin previously accepted this will be updated on backend function
-    const moderation = type === 'member' ? 'accepted' : 'awaiting-moderation';
+    const moderation = type === 'member' ? 'accepted' : 'awaiting-moderation'
     const pin: IMapPin = {
       _id: user.userName,
       _deleted: !user.location?.latlng,
@@ -198,10 +189,7 @@ export class MapsStore extends ModuleStore {
       pin.subType = user.workspaceType
     }
     logger.debug('setting user pin', pin)
-    await this.db
-      .collection<IMapPin>(COLLECTION_NAME)
-      .doc(pin._id)
-      .set(pin)
+    await this.db.collection<IMapPin>(COLLECTION_NAME).doc(pin._id).set(pin)
   }
 
   public removeSubscriptions() {

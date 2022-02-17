@@ -36,7 +36,7 @@ export class UploadedFile extends React.Component<IUploadedFileProps, IState> {
     // return callback before confirmation of deletion to provide immediate feedback to user
     this.props.onFileDeleted()
     this.setState({ deleted: true })
-    ref.delete().catch(error => {
+    ref.delete().catch((error) => {
       throw new Error(JSON.stringify(error))
     })
   }

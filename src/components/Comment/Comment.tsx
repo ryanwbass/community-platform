@@ -93,7 +93,7 @@ export const Comment: React.FC<IProps> = ({
       {showEditModal && (
         <Modal width={600}>
           <Form
-            onSubmit={values => {
+            onSubmit={(values) => {
               logger.debug(values)
             }}
             initialValues={{

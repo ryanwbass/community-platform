@@ -35,7 +35,7 @@ export class AuthRoute extends React.Component<IProps, IState> {
           </Flex>
         }
       >
-        <Route {...rest} render={props => <Component {...props} />} />
+        <Route {...rest} render={(props) => <Component {...props} />} />
       </AuthWrapper>
     )
   }

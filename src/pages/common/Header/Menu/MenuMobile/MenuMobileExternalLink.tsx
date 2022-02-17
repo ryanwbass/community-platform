@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Component } from 'react';
+import { Component } from 'react'
 import theme from 'src/themes/styled.theme'
 import { Box } from 'rebass/styled-components'
 import { LinkTargetBlank } from 'src/components/Links/LinkTargetBlank/LinkTargetBlank'

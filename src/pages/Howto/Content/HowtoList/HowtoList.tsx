@@ -57,7 +57,7 @@ export class HowtoList extends React.Component<any, IState> {
       const tagQuery = searchParams.get('tags')?.toString()
       if (tagQuery) {
         const tags = {}
-        tagQuery.split(',').forEach(tag => {
+        tagQuery.split(',').forEach((tag) => {
           tags[tag] = true
         })
 
@@ -90,12 +90,8 @@ export class HowtoList extends React.Component<any, IState> {
   }
 
   public render() {
-    const {
-      filteredHowtos,
-      selectedTags,
-      searchValue,
-      referrerSource,
-    } = this.props.howtoStore
+    const { filteredHowtos, selectedTags, searchValue, referrerSource } =
+      this.props.howtoStore
 
     const theme = this.props?.themeStore?.currentTheme
 
@@ -125,7 +121,7 @@ export class HowtoList extends React.Component<any, IState> {
           <Flex width={[1, 1, 0.2]} mb={['10px', '10px', 0]}>
             <TagsSelect
               value={selectedTags}
-              onChange={tags => {
+              onChange={(tags) => {
                 updateQueryParams(
                   window.location.href,
                   'tags',
@@ -144,7 +140,7 @@ export class HowtoList extends React.Component<any, IState> {
               data-cy="how-to-search-box"
               value={searchValue}
               placeholder="Search for a how-to"
-              onChange={value => {
+              onChange={(value) => {
                 updateQueryParams(window.location.href, 'search', value)
                 this.props.howtoStore.updateSearchValue(value)
               }}
@@ -187,7 +183,7 @@ export class HowtoList extends React.Component<any, IState> {
             >
               <VirtualizedFlex
                 data={filteredHowtos}
-                renderItem={data => (
+                renderItem={(data) => (
                   <Box px={4} py={4}>
                     <HowToCard howto={data} />
                   </Box>

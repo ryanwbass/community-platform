@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from 'react'
 import { WEEK_DAYS, OPENING_HOURS } from 'src/mocks/Selectors'
 import { Field } from 'react-final-form'
 import { Button } from 'src/components/Button'
