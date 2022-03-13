@@ -12,7 +12,7 @@ import theme from 'src/themes/styled.theme'
 import styled from 'styled-components'
 import { UserStats } from "./UserStats"
 import UserContactAndLinks from './UserContactAndLinks'
-import Badge from 'src/components/Badge/Badge'
+import { Badge } from 'oa-components'
 
 interface IProps {
   user: IUserPP,

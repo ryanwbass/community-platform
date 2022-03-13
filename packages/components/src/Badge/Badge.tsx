@@ -1,5 +1,5 @@
 import { Image, ImageProps } from 'rebass/styled-components'
-import { ProfileTypeLabel } from 'src/models/user_pp.models'
+import type { ProfileTypeLabel } from 'src/models/user_pp.models'
 import Workspace from 'src/pages/User/workspace/Workspace'
 
 import MemberBadge from 'src/assets/images/badges/pt-member.svg'
@@ -9,7 +9,7 @@ interface IProps extends ImageProps {
   profileType?: ProfileTypeLabel
 }
 
-const Avatar = function(props: IProps) {
+export const Badge = function (props: IProps) {
   const { size, style } = props
   const badgeProfileSrc = Workspace.findWorkspaceBadgeNullable(
     props.profileType,
@@ -17,15 +17,13 @@ const Avatar = function(props: IProps) {
   const avatarUrl = badgeProfileSrc || MemberBadge
 
   return (
-      <Image
-        className="avatar"
-        size={size ? size : 40}
-        height={size ? size : 40}
-        sx={{ borderRadius: '50%' }}
-        src={avatarUrl}
-        style={style}
-      />
+    <Image
+      className="avatar"
+      size={size ? size : 40}
+      height={size ? size : 40}
+      sx={{ borderRadius: '50%' }}
+      src={avatarUrl}
+      style={style}
+    />
   )
 }
-
-export default Avatar

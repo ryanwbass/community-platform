@@ -15,7 +15,7 @@ import Flex from 'src/components/Flex'
 import Workspace from 'src/pages/User/workspace/Workspace'
 import { Text } from 'src/components/Text'
 
-import Badge from 'src/components/Badge/Badge';
+import { Badge } from 'oa-components';
 
 import theme from 'src/themes/styled.theme'
 import { replaceDashesWithSpaces } from 'src/utils/helpers'
