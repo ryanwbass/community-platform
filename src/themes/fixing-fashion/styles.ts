@@ -192,7 +192,7 @@ const typography = {
 }
 
 const StyledComponentTheme: ThemeWithName = {
-  name: 'Project Kamp',
+  name: 'Fixing Fashion',
   colors,
   buttons,
   breakpoints,
