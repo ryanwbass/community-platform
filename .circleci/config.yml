@@ -463,6 +463,16 @@ workflows:
           context: build-context
           <<: *filter_only_production
       - deploy:
+          name: 'Deploy: fixing-fashion-prod.web.app'
+          requires:
+            - 'Build Production Release'
+          <<: *filter_only_production
+          DEPLOY_ALIAS: fixing-fashion-prod
+          NOTIFY_SLACK: false
+          context:
+            - circle-ci-slack-context
+            - fixing-fashion-prod
+      - deploy:
           name: 'Deploy: community.preciousplastic.com'
           requires:
             - 'Build Production Release'
